@@ -2,23 +2,27 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Hello World!!</title>
-    <style>
-        table { border-collapse: collapse; }
-        table, th, td { border: 1px solid black; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Gram FC-2000</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-
-    We are using Node.js <span id="node-version"></span>, Chromium <span id="chrome-version"></span>, Electron <span id="electron-version"></span>, and Serialport <span id="serialport-version"></span>
-
-    <div id="error"></div>
-    <div id="ports"></div>
+  <div id="serial-data" class="flex-container"></div>
+  <input type="checkbox" name="autoscroll" id="autoscroll" checked>
+  <label for="autoscroll">Autoscroll</label><br>
 </body>
 
-<script src="./renderer.js"></script>
+<script src="./serial.js"></script>
 
 </html>
