@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Gram FC-2000</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <ul id="navbar">
+        <li><a class="active" href="mainMenu.html">Main Menu</a></li>
+        <li><a href="serialMonitor.html">Serial Monitor</a></li>
+        <li><a href="dbSetting.html">Setting Database</a></li>
+    </ul>
+
+    <button id="conn-button" type="button">Connect</button>
+
+    <button class="dropbtn" onclick="dropdown()" type="button">BaudRate
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="baudRateMenu">
+        <a id="baud1">1200</a>
+        <a id="baud2">2400</a>
+        <a id="baud3">4800</a>
+        <a id="baud4">9600</a>
+    </div>
+
+    <div class="serial-monitor">
+        <div id="serial-data" class="flex-container"></div>
+    </div>
+
+    <input type="checkbox" name="autoscroll" id="autoscroll" checked>
+    <label for="autoscroll">Autoscroll</label><br>
+</body>
+
+
+<script>
+    function dropdown() {
+        document.getElementById("baudRateMenu").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (e) {
+        if (!e.target.matches('.dropbtn')) {
+            var myDropdown = document.getElementById("baudRateMenu");
+            if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+            }
+        }
+    }
+</script>
+<script src="./serial.js"></script>
+
+</html>

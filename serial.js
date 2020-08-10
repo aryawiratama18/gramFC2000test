@@ -36,26 +36,27 @@ serialport.list((err, ports) => {
     dataArr.push(dataSerial);
     console.log(dataArr);
     let lastArr = dataArr.slice(-1).pop();
-    let dataDisplayed = document.createTextNode(lastArr);
+    let dateAndData = dateTimeStamp() + '  ' + lastArr;
+    let dataDisplayed = document.createTextNode(dateAndData);
+
     // if autoscroll checkbox is checked
     if (autoscroll.checked == true) {
       if (dataArr.length > 20) {
-        dataArr.shift();
-        dataMonitorContainer.removeChild(dataMonitorContainer.firstElementChild);
         dataMonitorLine.appendChild(dataDisplayed);
-        dataMonitorContainer.appendChild(dataMonitorLine);
+        dataMonitorContainer.appendChild(dataMonitorLine).scrollIntoView();
+
       } else if (dataArr.length > 0) {
         let lastArr = dataArr.slice(-1).pop();
-        dataDisplayed = document.createTextNode(lastArr);
+        dateAndData = dateTimeStamp() + '  ' + lastArr;
+        dataDisplayed = document.createTextNode(dateAndData);
         dataMonitorLine.appendChild(dataDisplayed);
         dataMonitorContainer.appendChild(dataMonitorLine);
       } else {
-        dataMonitorLine.innerHTML = "No incoming data";
+        dataMonitorLine.innerHTML = dateTimeStamp() + '  ' + "No incoming data";
         dataMonitorContainer.appendChild(dataMonitorLine);
       }
     } else {
       if (dataArr.length > 20) {
-        dataArr.shift();
         let lastArr = dataArr.slice(-1).pop();
         dataDisplayed = document.createTextNode(lastArr);
         dataMonitorLine.appendChild(dataDisplayed);
@@ -72,3 +73,13 @@ serialport.list((err, ports) => {
     }
   });
 });
+
+function dateTimeStamp() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = dd + '/' + mm + '/' + yyyy;
+  return today;
+}
