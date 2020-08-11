@@ -45,26 +45,34 @@ td {
 }
 
 .dropdown-content {
+    margin: 3px;
+    padding: 0;
     display: none;
     position: absolute;
+    right: 4px;
     background-color: #f9f9f9;
-    min-width: 160px;
+    /* min-width: 160px; */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content li {
     float: none;
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
 
-.dropdown-content a:hover {
+.dropdown-content li:hover {
     background-color: #ddd;
 }
+
+.dropdown-content .active {
+    background-color: grey;
+}
+
+
 
 .show {
     display: block;
@@ -78,7 +86,7 @@ td {
     margin: 4px, 4px;
     padding: 4px;
     background-color: white;
-    width: 500px;
+    width: auto;
     height: 362px;
     overflow-x: hidden;
     overflow-y: auto;
