@@ -9,35 +9,47 @@
 </head>
 
 <body>
+    <div id="title-bar">
+        <div id="title">
+            Gram FC-2000
+        </div>
+        <div id="title-bar-btns">
+            <span id="min-btn"><i class="fa fa-window-minimize"></i></span>
+            <span id="max-btn"><i class="fa fa-window-maximize"></i></span>
+            <span id="close-btn"><i class="fa fa-times"></i></span>
+        </div>
+    </div>
     <ul id="navbar">
         <li><a href="main">Main Menu</a></li>
         <li><a class="active" href="sm">Serial Monitor</a></li>
         <li><a href="db">Setting Database</a></li>
     </ul>
 
+    <div class="container">
+        <div style="float: right; margin-left: 3px;">
+            <button id="conn-button" type="button">Connect</button>
+            <button class="dropbtn" type="button">
+                BaudRate
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-content" id="baudRateMenu" style="list-style-type: none;">
+                <li class="baud"><button>1200</button></li>
+                <li class="baud"><button>2400</button></li>
+                <li class="baud"><button>4800</button></li>
+                <li class="baud"><button>9600</button></li>
+            </ul>
+        </div>
 
-    <div style="float: right; margin-left: 3px;">
-        <button id="conn-button" type="button">Connect</button>
-        <button class="dropbtn" type="button">
-            BaudRate
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <ul class="dropdown-content" id="baudRateMenu" style="list-style-type: none;">
-            <li class="baud"><button>1200</button></li>
-            <li class="baud"><button>2400</button></li>
-            <li class="baud"><button>4800</button></li>
-            <li class="baud"><button>9600</button></li>
-        </ul>
+        <div class="serial-monitor">
+            <div id="serial-data" class="flex-container"></div>
+        </div>
+
+        <input type="checkbox" name="autoscroll" id="autoscroll" checked />
+        <label for="autoscroll">Autoscroll</label><br />
     </div>
-
-    <div class="serial-monitor">
-        <div id="serial-data" class="flex-container"></div>
-    </div>
-
-    <input type="checkbox" name="autoscroll" id="autoscroll" checked />
-    <label for="autoscroll">Autoscroll</label><br />
 </body>
 
 <script src="serial"></script>
+<script src="titlebar"></script>
 
 </html>

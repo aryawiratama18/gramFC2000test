@@ -18,10 +18,14 @@ function createWindow() {
       nodeIntegration: true,
     },
     backgroundColor: "#e3dcd8",
+    show: false,
+    frame: false,
   });
 
   mainWindow.loadURL("http://localhost:3000");
-
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+  });
   // Emitted when the window is closed.
   mainWindow.on("closed", () => {
     mainWindow = null;
@@ -59,6 +63,7 @@ handle["/"] = handler.mainMenu;
 handle["/main"] = handler.mainMenu;
 handle["/css"] = handler.style; // handler untuk style
 handle["/serial"] = handler.serial; // handler untuk serial.js
+handle["/titlebar"] = handler.titlebar; // handler untuk titlebar.js
 handle["/sm"] = handler.serialMonitor;
 handle["/db"] = handler.database;
 

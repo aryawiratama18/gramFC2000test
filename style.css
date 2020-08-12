@@ -1,11 +1,49 @@
-table {
-    border-collapse: collapse;
+body {
+    margin: 0;
 }
 
-table,
-th,
-td {
-    border: 1px solid black;
+.container {
+    margin: 5px;
+}
+
+
+/* Title bar */
+#title-bar {
+    -webkit-app-region: drag;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #333;
+    padding: none;
+    margin: 0px;
+}
+
+#title {
+    position: fixed;
+    top: 0px;
+    left: 6px;
+    color: white;
+    font-family: cursive;
+}
+
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    top: 0px;
+    right: 6px;
+    color: whitesmoke;
+    background-color: #333;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+#title-bar-btns span {
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 
@@ -25,7 +63,7 @@ td {
 #navbar li a {
     display: block;
     color: white;
-    font-family: 'monospace';
+    font-family: cursive;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
