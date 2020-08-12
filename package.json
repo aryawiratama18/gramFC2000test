@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "binding": "^3.0.3",
+    "mysql": "^2.18.1",
     "serialport": "^7.1.5",
     "tableify": "^1.1.0"
   }
