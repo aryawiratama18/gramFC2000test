@@ -9,7 +9,7 @@ const url = require("url");
 
 let mainWindow;
 
-function createWindow() {
+createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -30,7 +30,7 @@ function createWindow() {
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
-}
+};
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -55,6 +55,7 @@ app.on("activate", () => {
 var server = require("./server");
 var router = require("./router");
 var handler = require("./handler");
+// const { create } = require("domain");
 
 var handle = {};
 
