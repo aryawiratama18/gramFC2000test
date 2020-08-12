@@ -1,5 +1,4 @@
 const serialport = require("serialport");
-let baudRateValue;
 
 serialport.list((err, ports) => {
   console.log("ports", ports);

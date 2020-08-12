@@ -2,7 +2,7 @@
   "name": "electron-serialport",
   "version": "1.0.1",
   "description": "A minimal Electron application with node serialport",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "start": "electron .",
     "install": "electron-rebuild "
@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "binding": "^3.0.3",
+    "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "node-static": "^0.7.11",
     "serialport": "^7.1.5",
     "tableify": "^1.1.0"
   }
