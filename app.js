@@ -1,5 +1,4 @@
 const electron = require("electron");
-// const express = require("express");
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -17,22 +16,14 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      // preload: path.join(__dirname, 'preload.js')
     },
+    backgroundColor: "#e3dcd8",
   });
 
   mainWindow.loadURL("http://localhost:3000");
-  // and load the index.html of the app.
-  // mainWindow.loadURL(
-  //   url.format({
-  //     pathname: path.join(__dirname, "mainMenu.html"),
-  //     protocol: "file:",
-  //     slashes: true,
-  //   })
-  // );
 
   // Emitted when the window is closed.
-  mainWindow.on("closed", function () {
+  mainWindow.on("closed", () => {
     mainWindow = null;
   });
 }
@@ -43,13 +34,13 @@ function createWindow() {
 app.on("ready", createWindow);
 
 // Quit when all windows are closed.
-app.on("window-all-closed", function () {
+app.on("window-all-closed", () => {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   app.quit();
 });
 
-app.on("activate", function () {
+app.on("activate", () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
@@ -65,8 +56,9 @@ var handle = {};
 
 // Untuk menentukan pathname
 handle["/"] = handler.mainMenu;
-handle["/css"] = handler.style;
-handle["/serial"] = handler.serial;
+handle["/main"] = handler.mainMenu;
+handle["/css"] = handler.style; // handler untuk style
+handle["/serial"] = handler.serial; // handler untuk serial.js
 handle["/sm"] = handler.serialMonitor;
 handle["/db"] = handler.database;
 
