@@ -8,6 +8,7 @@ serialport.list((err, ports) => {
   let dataArr = [];
   let autoscroll = document.getElementById("autoscroll");
 
+  // Kondisi awal portnya tertutup
   port.close((err) => {
     console.log("Port Closed", err);
   });
@@ -17,11 +18,11 @@ serialport.list((err, ports) => {
   connButton.addEventListener("click", () => {
     if (connButton.innerHTML === "Connect") {
       connButton.innerHTML = "Disconnect";
-      // isConnected = true;
       if (ports.length === 0) {
         console.log("No ports discovered");
       }
       port.open(() => {
+        console.clear(); // Membersihkan console
         port.on("data", (data) => {
           let dataSerial = data.toString("utf-8");
           let dataMonitorContainer = document.getElementById("serial-data");
@@ -74,7 +75,6 @@ serialport.list((err, ports) => {
         });
       });
     } else {
-      // isConnected = false;
       port.close((err) => {
         console.log("Port Closed", err);
       });
