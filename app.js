@@ -26,6 +26,7 @@ createWindow = () => {
   mainWindow.once("ready-to-show", () => {
     mainWindow.show();
   });
+  mainWindow.webContents.openDevTools();
   // Emitted when the window is closed.
   mainWindow.on("closed", () => {
     mainWindow = null;
@@ -35,6 +36,7 @@ createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
+
 app.on("ready", createWindow);
 
 // Quit when all windows are closed.
@@ -55,7 +57,6 @@ app.on("activate", () => {
 var server = require("./server");
 var router = require("./router");
 var handler = require("./handler");
-// const { create } = require("domain");
 
 var handle = {};
 
@@ -65,6 +66,7 @@ handle["/main"] = handler.mainMenu;
 handle["/css"] = handler.style; // handler untuk style
 handle["/serial"] = handler.serial; // handler untuk serial.js
 handle["/titlebar"] = handler.titlebar; // handler untuk titlebar.js
+handle["/database"] = handler.dbscript; // handler untuk database.js
 handle["/sm"] = handler.serialMonitor;
 handle["/db"] = handler.database;
 
